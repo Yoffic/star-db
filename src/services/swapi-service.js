@@ -1,5 +1,11 @@
+import Converter from './converter';
+
 export default class SwapiService {
   _baseApi = 'https://swapi.co/api';
+  
+  constructor() {
+    this.converter = new Converter();
+  }
   
   async getData(url) {
     const response = await fetch(`${this._baseApi}${url}`);
@@ -12,28 +18,31 @@ export default class SwapiService {
 
   async getAllPeople() {
     const data = await this.getData('/people/');
-    return data.results;
+    return data.results.map(this.converter.convertPerson);
   }
 
-  getPerson(id) {
-    return this.getData(`/people/${id}/`);
+  async getPerson(id) {
+    const person = await this.getData(`/people/${id}/`);
+    return this.converter.convertPerson(person);
   }
 
   async getAllPlanets() {
     const data = await this.getData('/planets/');
-    return data.results;
+    return data.results.map(this.converter.convertPlanet);
   }
 
-  getPlanet(id) {
-    return this.getData(`/planets/${id}/`);
+  async getPlanet(id) {
+    const planet = await this.getData(`/planets/${id}/`);
+    return this.converter.convertPlanet(planet);
   }
 
   async getAllStarships() {
     const data = await this.getData('/starships/');
-    return data.results;
+    return data.results.map(this.converter.convertStarship);
   }
 
-  getStarship(id) {
-    return this.getData(`/starships/${id}/`);
+  async getStarship(id) {
+    const starship = await this.getData(`/starships/${id}/`);
+    return this.converter.convertStarship(starship);
   }
 }

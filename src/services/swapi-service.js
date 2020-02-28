@@ -12,8 +12,8 @@ export default class SwapiService {
     if (!response.ok) {
       throw new Error(`Couldn't fetch ${url}, response ${response.status}`);
     }
+
     return await response.json();
-    
   }
 
   async getAllPeople() {

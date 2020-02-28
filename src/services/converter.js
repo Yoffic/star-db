@@ -4,7 +4,7 @@ export default class Converter {
     return item.url.match(idRegExp)[1];
   }
 
-  convertPerson(person) {
+  convertPerson = (person) => {
     return {
       id: this.getId(person),
       name: person.name,
@@ -17,7 +17,7 @@ export default class Converter {
     };
   }
 
-  convertPlanet(planet) {
+  convertPlanet = (planet) => {
     return {
       id: this.getId(planet),
       name: planet.name,
@@ -27,7 +27,7 @@ export default class Converter {
     };
   }
 
-  convertStarship(starship) {
+  convertStarship = (starship) => {
     return {
       id: this.getId(starship),
       name: starship.name,

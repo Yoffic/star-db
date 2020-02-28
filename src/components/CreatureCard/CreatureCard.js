@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 
-import './PersonCard.css';
+import './CreatureCard.css';
 
-export default class PersonCard extends Component {
+export default class CreatureCard extends Component {
   render () {
     return (
-      <div className="person-card card d-flex bg-dark">
-        <img className="person-image"
+      <div className="creature-card card d-flex bg-dark">
+        <img className="creature-image"
           src="https://starwars-visualguide.com/assets/img/characters/3.jpg" alt="" />
 
         <div className="card-body">

@@ -1,18 +1,18 @@
-.person-card {
+.creature-card {
   flex-direction: row;
   padding: 1rem;
 }
 
-.person-card .person-image {
+.creature-card .creature-image {
   width: 30%;
   height: 30%;
   border-radius: .2rem;
 }
 
-.person-card .list-group-item {
+.creature-card .list-group-item {
   padding: .25rem;
 }
 
-.person-card .list-group-item .term {
+.creature-card .list-group-item .term {
   margin-right: .5rem;
 }

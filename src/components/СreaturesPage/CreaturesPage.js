@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import CreatureCard from '../CreatureCard';
 import ItemsList from '../ItemsList';
+import Row from '../Row';
 import SwapiService from '../../services/swapi-service';
 
 import './CreaturesPage.css';
@@ -27,19 +28,19 @@ export default class CreaturesPage extends Component {
 
   render() {
     const { selectedCreature } = this.state;
+
+    const itemsList = (
+      <ItemsList 
+        onItemSelected={this.onCreatureSelect}
+        getData={this.swapiService.getAllPeople}
+        renderItem={({ name, gender, birthYear }) => `${name} (${gender}, ${birthYear})`}
+      />
+    );
+
+    const creatureCard = <CreatureCard creatureId={selectedCreature}/>;
+
     return (
-      <div className="row mb-2">
-        <div className="col-md-6">
-          <ItemsList 
-            onItemSelected={this.onCreatureSelect}
-            getData={this.swapiService.getAllPeople}
-            renderItem={({ name, gender, birthYear }) => `${name} (${gender}, ${birthYear})`}
-          />
-        </div>
-        <div className="col-md-6">
-          <CreatureCard creatureId={selectedCreature}/>
-        </div>
-      </div>
+      <Row left={itemsList} right={creatureCard} />
     );
   }
 }

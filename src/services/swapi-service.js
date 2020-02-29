@@ -1,4 +1,5 @@
 import Converter from './converter';
+import getImage from './image-getter';
 
 export default class SwapiService {
   _baseApi = 'https://swapi.co/api';
@@ -44,5 +45,9 @@ export default class SwapiService {
   getStarship = async (id) => {
     const starship = await this.getData(`/starships/${id}/`);
     return this.converter.convertStarship(starship);
+  }
+
+  getImageUrl = (item, type) => {
+    return getImage(item.id, type);
   }
 }

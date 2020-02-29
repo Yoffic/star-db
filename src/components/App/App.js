@@ -2,16 +2,22 @@ import React, { Component } from 'react';
 
 import Header from '../Header';
 import Hero from '../Hero';
-import ItemsList from '../ItemsList';
-import CreatureCard from '../CreatureCard';
+import CreaturesPage from '../СreaturesPage/CreaturesPage';
+import ErrorIndicator from '../ErrorIndicator';
 
 import './App.css';
 
 export default class App extends Component {
   state = {
     showHero: true,
-    selectedCreature: 1,
+    hasError: false,
   };
+
+  componentDidCatch() {
+    this.setState({
+      hasError: true
+    });
+  }
 
   toggleHero = () => {
     this.setState(({ showHero }) => {
@@ -21,14 +27,12 @@ export default class App extends Component {
     });
   };
 
-  onCreatureSelect = (id) => {
-    this.setState({
-      selectedCreature: id,
-    })
-  };
-
   render() {
-    const { showHero, selectedCreature } = this.state;
+    const { showHero, hasError } = this.state;
+    if (hasError) {
+      return <ErrorIndicator />;
+    }
+
     const hero = showHero ? <Hero /> : null;
     return (
       <div className="container">
@@ -37,14 +41,7 @@ export default class App extends Component {
         <button className="btn btn-primary mb-4" onClick={this.toggleHero}>
           Toggle Random Planet
         </button>
-        <div className="row mb-2">
-          <div className="col-md-6">
-            <ItemsList onItemSelected={this.onCreatureSelect}/>
-          </div>
-          <div className="col-md-6">
-            <CreatureCard creatureId={selectedCreature}/>
-          </div>
-        </div>
+        <CreaturesPage />
       </div>
     );
   }

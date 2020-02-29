@@ -3,6 +3,11 @@
   padding: 1rem;
 }
 
+.creature-card div.card-body {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
 .creature-card .creature-image {
   width: 30%;
   height: 30%;

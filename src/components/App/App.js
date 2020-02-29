@@ -3,13 +3,14 @@ import React, { Component } from 'react';
 import Header from '../Header';
 import Hero from '../Hero';
 import ItemsList from '../ItemsList';
-import PersonCard from '../PersonCard';
+import CreatureCard from '../CreatureCard';
 
 import './App.css';
 
 export default class App extends Component {
   state = {
     showHero: true,
+    selectedCreature: 1,
   };
 
   toggleHero = () => {
@@ -20,8 +21,14 @@ export default class App extends Component {
     });
   };
 
+  onCreatureSelect = (id) => {
+    this.setState({
+      selectedCreature: id,
+    })
+  };
+
   render() {
-    const { showHero } = this.state;
+    const { showHero, selectedCreature } = this.state;
     const hero = showHero ? <Hero /> : null;
     return (
       <div className="container">
@@ -32,10 +39,10 @@ export default class App extends Component {
         </button>
         <div className="row mb-2">
           <div className="col-md-6">
-            <ItemsList />
+            <ItemsList onItemSelected={this.onCreatureSelect}/>
           </div>
           <div className="col-md-6">
-            <PersonCard />
+            <CreatureCard creatureId={selectedCreature}/>
           </div>
         </div>
       </div>

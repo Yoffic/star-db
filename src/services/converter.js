@@ -11,9 +11,6 @@ export default class Converter {
       gender: person.gender,
       birthYear: person.birth_year,
       eyeColor: person.eye_color,
-      hairColor: person.hair_color,
-      skinColor: person.skin_color,
-      height: person.height,
     };
   }
 
@@ -32,12 +29,9 @@ export default class Converter {
       id: this.getId(starship),
       name: starship.name,
       model: starship.model,
-      manufacturer: starship.manufacturer,
       costInCredits: starship.cost_in_credits,
       length: starship.length,
-      crew: starship.crew,
       passengers: starship.passengers,
-      cargoCapacity: starship.cargo_capacity,
     };
   }
 }

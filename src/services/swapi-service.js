@@ -1,5 +1,6 @@
 import Converter from './converter';
 import getImage from './image-getter';
+import getFields from './fields-getter';
 
 export default class SwapiService {
   _baseApi = 'https://swapi.co/api';
@@ -49,5 +50,9 @@ export default class SwapiService {
 
   getImageUrl = (item, type) => {
     return getImage(item.id, type);
+  }
+
+  getFields = (type) => {
+    return getFields(type);
   }
 }

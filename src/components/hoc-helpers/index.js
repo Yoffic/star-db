@@ -1,3 +1,7 @@
-import renderWithData from './render-with-data';
+import renderListData from './render-list-data';
+import renderCardData from './render-card-data';
 
-export { renderWithData };
+export {
+  renderListData,
+  renderCardData,
+};

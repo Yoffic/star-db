@@ -1,6 +1,5 @@
 import React from 'react';
 
-import { renderWithData } from '../hoc-helpers';
 import './ItemsList.css';
 
 const ItemsList = (props) => {
@@ -31,4 +30,4 @@ const ItemsList = (props) => {
   );
 }
 
-export default renderWithData(ItemsList);
+export default ItemsList;

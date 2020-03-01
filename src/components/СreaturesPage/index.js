@@ -1,3 +1,4 @@
-import CreaturesPage from './CreaturesPage';
+import CreaturesPage, { Record } from './CreaturesPage';
 
+export { Record };
 export default CreaturesPage;

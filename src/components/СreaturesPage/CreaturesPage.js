@@ -1,15 +1,12 @@
 import React, { Component } from 'react';
 
-import CreatureCard from '../CreatureCard';
-import ItemsList from '../ItemsList';
 import Row from '../Row';
-import SwapiService from '../../services/swapi-service';
 import ErrorBoundary from '../ErrorBoundary';
+import { PeopleList, PersonCard } from '../sw-components/index';
 
 import './CreaturesPage.css';
 
 export default class CreaturesPage extends Component {
-  swapiService = new SwapiService();
   state = {
     selectedCreature: 1,
   };
@@ -24,14 +21,18 @@ export default class CreaturesPage extends Component {
     const { selectedCreature } = this.state;
 
     const itemsList = (
-      <ItemsList 
+      <PeopleList 
         onItemSelected={this.onCreatureSelect}
-        getData={this.swapiService.getAllPeople}
-        renderItem={(item) => `${item.name} (${item.birthYear})`}
+        renderItem={ ({ name }) => name }
       />
     );
 
-    const creatureCard = <CreatureCard creatureId={selectedCreature}/>;
+    const creatureCard = (
+      <PersonCard
+        dataId={selectedCreature}
+        type={'person'}
+      />
+    );
 
     return (
       <ErrorBoundary>

@@ -2,22 +2,3 @@
   flex-direction: row;
   padding: 1rem;
 }
-
-.creature-card div.card-body {
-  padding-top: 0;
-  padding-bottom: 0;
-}
-
-.creature-card .creature-image {
-  width: 30%;
-  height: 30%;
-  border-radius: .2rem;
-}
-
-.creature-card .list-group-item {
-  padding: .25rem;
-}
-
-.creature-card .list-group-item .term {
-  margin-right: .5rem;
-}

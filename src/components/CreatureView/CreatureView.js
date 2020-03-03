@@ -2,8 +2,8 @@ import React from 'react';
 
 import './CreatureView.css';
 
-const CreatureView = ({ creature, image, fields }) => {
-  const { name } = creature;
+const CreatureView = ({ data, image, fields }) => {
+  const { name } = data;
   const dataList = fields.map(({ field, label }) => {
     return (
       <li className="list-group-item">

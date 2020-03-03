@@ -23,7 +23,7 @@ export default class CreaturesPage extends Component {
     const itemsList = (
       <PeopleList 
         onItemSelected={this.onCreatureSelect}
-        renderItem={ ({ name }) => name }
+        renderName={ ({ name }) => name }
       />
     );
 

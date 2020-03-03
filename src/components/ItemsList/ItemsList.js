@@ -3,7 +3,7 @@ import React from 'react';
 import './ItemsList.css';
 
 const ItemsList = (props) => {
-  const { data, onItemSelected, renderItem } = props;
+  const { data, onItemSelected, renderName } = props;
   let content;
 
   if (!data) {
@@ -11,7 +11,8 @@ const ItemsList = (props) => {
   } else {
     const items = data.map((item) => {
       const { id } = item;
-      const label = renderItem(item);
+      const label = renderName(item);
+
       return (
         <li className="list-group-item" 
             key={id}
@@ -20,6 +21,7 @@ const ItemsList = (props) => {
         </li>
       );
     });
+
     content = items;
   }
 

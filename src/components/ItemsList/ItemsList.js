@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import './ItemsList.css';
 
@@ -26,10 +27,20 @@ const ItemsList = (props) => {
   }
 
   return (
-    <ul className="items-list list-group bg-dark">
+    <ul className="items-list list-group">
       { content }
     </ul>
   );
 }
+
+ItemsList.defaultProps = {
+  onItemSelected: () => {}
+};
+
+ItemsList.propTypes = {
+  onItemSelected: PropTypes.func,
+  data: PropTypes.arrayOf(PropTypes.object),
+  renderName: PropTypes.func,
+};
 
 export default ItemsList;

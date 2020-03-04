@@ -1,12 +1,20 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+
 import SwapiService from '../../services/swapi-service';
 import Spinner from '../Spinner';
-
 import './Hero.css';
 import ErrorIndicator from '../ErrorIndicator';
 
 export default class Hero extends Component {
-  
+  static defaultProps = {
+    updateInterval: 10000,
+  };
+
+  static propTypes = {
+    updateInterval: PropTypes.number,
+  };
+
   swapiService = new SwapiService();
   
   state = {
@@ -16,8 +24,9 @@ export default class Hero extends Component {
   };
 
   componentDidMount() {
+    const { updateInterval } = this.props;
     this.updatePlanet();
-    this.interval = setInterval(this.updatePlanet, 10000);
+    this.interval = setInterval(this.updatePlanet, updateInterval);
   }
 
   componentWillUnmount() {
@@ -56,7 +65,7 @@ export default class Hero extends Component {
     const spinner = loading ? <Spinner /> : null;
     const content = hasData ? <PlanetView planet={planet}/> : null;
     return (
-      <div className="jumbotron d-flex hero">
+      <div className="jumbotron d-flex hero bg-light list-group-flush">
         { spinner }
         { content }
         { errMsg }
@@ -70,11 +79,11 @@ const PlanetView = ({ planet }) => {
       id, name, population, rotationPeriod, diameter
     } = planet;
   return (
-    <React.Fragment>
+    <>
       <img className="random-img" src={`https://starwars-visualguide.com/assets/img/planets/${id}.jpg`} alt="" />
       <div>
         <h2>{name}</h2>
-        <ul className="list-group list-group-flush">
+        <ul className="list-group">
           <li className="list-group-item">
             <span className="term">Population: </span>
             <span>{population}</span>
@@ -89,6 +98,6 @@ const PlanetView = ({ planet }) => {
           </li>
         </ul>
       </div>
-    </React.Fragment>
+    </>
   );
 }

@@ -8,7 +8,7 @@ import './StarshipsPage.css';
 
 export default class StarshipsPage extends Component {
   state = {
-    selectedStarship: 2,
+    selectedStarship: 5,
   };
   
   selectStarship = (id) => {

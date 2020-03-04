@@ -19,6 +19,11 @@
   padding: .4rem .4rem .4rem 0;
 }
 
+.hero .list-group-item:hover {
+  background-color: #222222;
+  color: inherit;
+}
+
 .hero .list-group-item .term {
   margin-right: .5rem;
 }

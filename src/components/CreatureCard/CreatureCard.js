@@ -10,7 +10,7 @@ const CreatureCard = (props) => {
     : <CreatureView {...props}></CreatureView>;
 
   return (
-    <div className="creature-card card d-flex bg-dark">
+    <div className="creature-card card d-flex">
       {creatureData}
     </div>
   );

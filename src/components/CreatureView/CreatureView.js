@@ -3,10 +3,12 @@ import React from 'react';
 import './CreatureView.css';
 
 const CreatureView = ({ data, image, fields }) => {
+  const startKeyValue = 21;
   const { name } = data;
-  const dataList = fields.map(({ field, label }) => {
+  const dataList = fields.map(({ field, label }, idx) => {
+    const currentKey = startKeyValue + idx;
     return (
-      <li className="list-group-item">
+      <li className="list-group-item" key={currentKey}>
         <span className="term">{label}: </span>
         <span>{field}</span>
       </li>
@@ -19,7 +21,7 @@ const CreatureView = ({ data, image, fields }) => {
           src={image} alt="" />
 
         <div className="card-body">
-          <h4>{name}</h4>
+          <h4 className="text-primary">{name}</h4>
           <ul className="list-group list-group-flush">
             {dataList}
           </ul>

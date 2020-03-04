@@ -8,7 +8,7 @@ import './PlanetsPage.css';
 
 export default class PlanetsPage extends Component {
   state = {
-    selectedPlanet: 1,
+    selectedPlanet: 2,
   };
   
   selectPlanet = (id) => {

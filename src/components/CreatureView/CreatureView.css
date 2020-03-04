@@ -10,7 +10,12 @@
 }
 
 .creature-card .list-group-item {
+  background-color: #282828;
   padding: .25rem;
+}
+
+.creature-card .list-group-item:hover {
+  color: inherit;
 }
 
 .creature-card .list-group-item .term {

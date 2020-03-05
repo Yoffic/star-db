@@ -1,13 +1,9 @@
 import {
-  PeopleList,
-  PlanetsList,
-  StarshipsList,
+  PeopleList, PlanetsList, StarshipsList,
 } from './lists';
 
 import {
-  PersonCard,
-  PlanetCard,
-  StarshipCard,
+  PersonCard, PlanetCard, StarshipCard,
 } from './cards';
 
 export {

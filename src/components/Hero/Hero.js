@@ -80,7 +80,7 @@ const PlanetView = ({ planet }) => {
     } = planet;
   return (
     <>
-      <img className="random-img" src={`https://starwars-visualguide.com/assets/img/planets/${id}.jpg`} alt="" />
+      <img className="random-img" crossOrigin="anonymous" src={`https://starwars-visualguide.com/assets/img/planets/${id}.jpg`} alt="" />
       <div>
         <h2>{name}</h2>
         <ul className="list-group">

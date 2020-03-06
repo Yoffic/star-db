@@ -36,6 +36,7 @@ export default class PlanetsPage extends Component {
 
     return (
       <ErrorBoundary>
+        <h2>Planets</h2>
         <Row left={planetsList} right={planetCard} />
       </ErrorBoundary>
     );

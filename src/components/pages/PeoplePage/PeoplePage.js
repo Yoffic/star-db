@@ -23,6 +23,7 @@ const PeoplePage = ({ match, history }) => {
 
   return (
     <ErrorBoundary>
+      <h2>People</h2>
       <Row left={itemsList} right={personCard} />
     </ErrorBoundary>
   );

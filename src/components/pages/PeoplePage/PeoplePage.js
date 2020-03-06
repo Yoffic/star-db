@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 import Row from '../../Row';
 import ErrorBoundary from '../../ErrorBoundary';
@@ -6,38 +6,26 @@ import { PeopleList, PersonCard } from '../../sw-components/index';
 
 import './PeoplePage.css';
 
-export default class PeoplePage extends Component {
-  state = {
-    selectedPerson: 1,
-  };
-  
-  selectPerson = (id) => {
-    this.setState({
-      selectedPerson: id,
-    })
-  };
+const PeoplePage = ({ match, history }) => {
+  const itemsList = (
+    <PeopleList 
+      onItemSelected={(id) => history.push(id)}
+      renderName={ ({ name }) => name }
+    />
+  );
 
-  render() {
-    const { selectedPerson } = this.state;
+  const personCard = (
+    <PersonCard
+      dataId={match.params.id}
+      type={'person'}
+    />
+  );
 
-    const itemsList = (
-      <PeopleList 
-        onItemSelected={this.selectPerson}
-        renderName={ ({ name }) => name }
-      />
-    );
-
-    const personCard = (
-      <PersonCard
-        dataId={selectedPerson}
-        type={'person'}
-      />
-    );
-
-    return (
-      <ErrorBoundary>
-        <Row left={itemsList} right={personCard} />
-      </ErrorBoundary>
-    );
-  }
+  return (
+    <ErrorBoundary>
+      <Row left={itemsList} right={personCard} />
+    </ErrorBoundary>
+  );
 }
+
+export default PeoplePage;

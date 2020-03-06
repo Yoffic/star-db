@@ -22,13 +22,12 @@ const renderListData = (View, getData) => {
 
     render() {
       const { data, error } = this.state;
-      if (error) {
-        return <View><ErrorIndicator /></View>;
-      }
-      if (!data) {
-        return <View><Spinner /></View>;
-      }
-      return <View {...this.props} data={data}></View>
+      return (
+        <View {...this.props} data={data}>
+          {error && <ErrorIndicator />}
+          {!data && !error && <Spinner />}
+        </View>
+      );
     }
   };
 }

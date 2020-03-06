@@ -18,7 +18,8 @@ export default class App extends Component {
           <Header />
           <Hero />
           <Route exact path='/' render={() => <h2>Welcome to StarDB</h2>} />
-          <Route path='/people/' component={PeoplePage} />
+          <Route path='/people/' render={() => <h2>People</h2>} />
+          <Route path='/people/:id?' component={PeoplePage} />
           <Route path='/planets/' component={PlanetsPage} />
           <Route exact path='/starships/' component={StarshipsPage} />
           <Route 

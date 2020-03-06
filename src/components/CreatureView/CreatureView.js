@@ -3,7 +3,7 @@ import React from 'react';
 import './CreatureView.css';
 
 const CreatureView = ({ data, image, fields }) => {
-  const startKeyValue = Math.floor(Math.random() * 10);
+  const startKeyValue = Math.floor(Math.random() * 20);
   const { name } = data;
   const dataList = fields.map(({ field, label }, idx) => {
     const currentKey = startKeyValue + idx;

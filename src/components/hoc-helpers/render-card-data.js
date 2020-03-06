@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 
-import Spinner from '../Spinner';
 import ErrorIndicator from '../ErrorIndicator';
 
 const renderCardData = (View, getData, getImage, getFields) => {
@@ -41,16 +40,14 @@ const renderCardData = (View, getData, getImage, getFields) => {
 
     render() {
       const { data, image, loading, fields, error } = this.state;
-      if (error) {
-        return <View><ErrorIndicator /></View>;
-      }
-      if (!data) {
-        return <span>Select an item from a list</span>
-      }
-      if (loading) {
-        return <View loading={loading} ><Spinner /></View>;
-      }
-      return <View {...this.props} data={data} image={image} fields={fields}></View>
+      return (
+        <>
+          {!data && <span>Select an item from a list</span>}
+          {data && <View {...this.props} data={data} image={image} fields={fields} loading={loading}>
+            {error && <ErrorIndicator />} 
+          </View>}
+        </>
+      );
     }
   }
 };

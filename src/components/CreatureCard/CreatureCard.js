@@ -1,17 +1,16 @@
 import React from 'react';
 
 import './CreatureCard.css';
+import Spinner from '../Spinner';
 import CreatureView from '../CreatureView';
 
 const CreatureCard = (props) => {
-  const { loading } = props;
-  const creatureData = loading
-    ? props.children
-    : <CreatureView {...props}></CreatureView>;
+  const { loading, data } = props;
 
   return (
     <div className="creature-card card d-flex">
-      {creatureData}
+      {loading && <Spinner />}
+      {!loading && data && <CreatureView {...props}></CreatureView>}
     </div>
   );
 };

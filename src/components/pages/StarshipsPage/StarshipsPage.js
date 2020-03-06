@@ -1,43 +1,19 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-import Row from '../../Row';
 import ErrorBoundary from '../../ErrorBoundary';
-import { StarshipsList, StarshipCard } from '../../sw-components/index';
+import { StarshipsList } from '../../sw-components/index';
 
 import './StarshipsPage.css';
 
-export default class StarshipsPage extends Component {
-  state = {
-    selectedStarship: 5,
-  };
-  
-  selectStarship = (id) => {
-    this.setState({
-      selectedStarship: id,
-    })
-  };
-
-  render() {
-    const { selectedStarship } = this.state;
-
-    const starshipsList = (
+const StarshipsPage = ({ history }) => {
+  return (
+    <ErrorBoundary>
       <StarshipsList 
-        onItemSelected={this.selectStarship}
+        onItemSelected={(id) => history.push(id)}
         renderName={ ({ name }) => name }
       />
-    );
-
-    const starshipCard = (
-      <StarshipCard
-        dataId={selectedStarship}
-        type={'starship'}
-      />
-    );
-
-    return (
-      <ErrorBoundary>
-        <Row left={starshipsList} right={starshipCard} />
-      </ErrorBoundary>
-    );
-  }
+    </ErrorBoundary>
+  );
 }
+
+export default StarshipsPage;

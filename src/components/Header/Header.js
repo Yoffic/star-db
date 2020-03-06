@@ -8,14 +8,14 @@ const Header = () => {
     <nav className="header d-flex">
       <h3><Link to="/">StarDB</Link></h3>
       <ul className="d-flex">
-        <li className="active">
-          <Link to="/people">People <span className="sr-only">(current)</span></Link>
+        <li>
+          <Link to="/people/">People</Link>
         </li>
         <li>
-          <Link to="/planets">Planets</Link>
+          <Link to="/planets/">Planets</Link>
         </li>
         <li>
-          <Link to="/starships">Starships</Link>
+          <Link to="/starships/">Starships</Link>
         </li>
       </ul>
     </nav>

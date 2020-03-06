@@ -20,7 +20,7 @@ export default class App extends Component {
             <Switch>
               <Route exact path='/' render={() => <h2>Welcome to StarDB</h2>} />
               <Route path='/people/:id?' component={PeoplePage} />
-              <Route path='/planets/' component={PlanetsPage} />
+              <Route path='/planets/:id?' component={PlanetsPage} />
               <Route exact path='/starships/' component={StarshipsPage} />
               <Route 
                 path='/starships/:id' 

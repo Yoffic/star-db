@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 import Row from '../../Row';
 import ErrorBoundary from '../../ErrorBoundary';
@@ -6,39 +6,27 @@ import { PlanetsList, PlanetCard } from '../../sw-components/index';
 
 import './PlanetsPage.css';
 
-export default class PlanetsPage extends Component {
-  state = {
-    selectedPlanet: 2,
-  };
-  
-  selectPlanet = (id) => {
-    this.setState({
-      selectedPlanet: id,
-    })
-  };
+const PlanetsPage = ({ match, history }) => {
+  const planetsList = (
+    <PlanetsList 
+      onItemSelected={(id) => history.push(id)}
+      renderName={ ({ name }) => name }
+    />
+  );
 
-  render() {
-    const { selectedPlanet } = this.state;
+  const planetCard = (
+    <PlanetCard
+      dataId={match.params.id}
+      type={'planet'}
+    />
+  );
 
-    const planetsList = (
-      <PlanetsList 
-        onItemSelected={this.selectPlanet}
-        renderName={ ({ name }) => name }
-      />
-    );
+  return (
+    <ErrorBoundary>
+      <h2>Planets</h2>
+      <Row left={planetsList} right={planetCard} />
+    </ErrorBoundary>
+  );
+};
 
-    const planetCard = (
-      <PlanetCard
-        dataId={selectedPlanet}
-        type={'planet'}
-      />
-    );
-
-    return (
-      <ErrorBoundary>
-        <h2>Planets</h2>
-        <Row left={planetsList} right={planetCard} />
-      </ErrorBoundary>
-    );
-  }
-}
+export default PlanetsPage;

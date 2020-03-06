@@ -45,7 +45,7 @@ const renderCardData = (View, getData, getImage, getFields) => {
         return <View><ErrorIndicator /></View>;
       }
       if (!data) {
-        return <span>Select a person from a list</span>
+        return <span>Select an item from a list</span>
       }
       if (loading) {
         return <View loading={loading} ><Spinner /></View>;

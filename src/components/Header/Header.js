@@ -1,21 +1,21 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 import './Header.css';
 
 const Header = () => {
   return (
     <nav className="header d-flex">
-      <h3><Link to="/">StarDB</Link></h3>
+      <h3><NavLink to="/">StarDB</NavLink></h3>
       <ul className="d-flex">
         <li>
-          <Link to="/people/">People</Link>
+          <NavLink to="/people/" activeClassName='active'>People</NavLink>
         </li>
         <li>
-          <Link to="/planets/">Planets</Link>
+          <NavLink to="/planets/" activeClassName='active'>Planets</NavLink>
         </li>
         <li>
-          <Link to="/starships/">Starships</Link>
+          <NavLink to="/starships/" activeClassName='active'>Starships</NavLink>
         </li>
       </ul>
     </nav>

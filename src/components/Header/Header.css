@@ -21,7 +21,7 @@
   padding-right: 2rem;
 }
 
-.header ul li.active a {
+.header ul li a.active {
   color: #ffffff;
 }
 

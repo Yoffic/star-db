@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 
 import SwapiService from '../../services/swapi-service';
 import Spinner from '../Spinner';
-import './Hero.css';
 import ErrorIndicator from '../ErrorIndicator';
+import './Hero.css';
 
 export default class Hero extends Component {
   static defaultProps = {
@@ -48,8 +48,8 @@ export default class Hero extends Component {
   };
 
   updatePlanet = () => {
-    const maxIdPlanet = 18;
-    const minIdPlanet = 3;
+    const maxIdPlanet = 10;
+    const minIdPlanet = 2;
     const id = Math.floor(Math.random() * maxIdPlanet) + minIdPlanet;
     this.swapiService
       .getPlanet(id)

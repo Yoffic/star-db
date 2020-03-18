@@ -4,7 +4,7 @@ import Header from '../Header';
 import Hero from '../Hero';
 import { PeoplePage, PlanetsPage, StarshipsPage } from '../pages';
 import ErrorBoundary from '../ErrorBoundary';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { HashRouter as Router, Route, Switch } from 'react-router-dom';
 
 import './App.css';
 import { StarshipCard } from '../sw-components';
